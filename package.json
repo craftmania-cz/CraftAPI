@@ -67,6 +67,7 @@
     "install": "^0.12.2",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.5-next2",
+    "knex-paginate": "^1.2.3",
     "mc-ping-updated": "^0.1.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",

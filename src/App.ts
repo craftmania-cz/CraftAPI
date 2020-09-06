@@ -1,5 +1,5 @@
-
 import * as express from 'express';
+import {Request, Response} from 'express';
 import * as bodyParser from 'body-parser';
 import PlayerRoutes from "./routes/PlayerRoutes";
 import * as exphbs from 'express-handlebars';
@@ -7,7 +7,6 @@ import * as cookieParser from 'cookie-parser';
 import * as cors from "cors";
 import * as helmet from "helmet";
 import * as morgan from 'morgan';
-import { Request, Response } from "express";
 import ServerRoutes from "./routes/ServerRoutes";
 import EconomyRoutes from "./routes/EconomyRoutes";
 import LeaderboardRoutes from "./routes/economy/LeaderboardRoutes";
@@ -16,8 +15,9 @@ import AchievementRoutes from "./routes/AchievementRoutes";
 import LeaderboardMcmmoRoutes from "./routes/economy/LeaderboardMcmmoRoutes";
 import AccountRoutes from "./routes/AccountRoutes";
 import MojangRoutes from "./routes/MojangRoutes";
-import { debugStream, winstonStream } from "./utils/Logger";
+import {debugStream, winstonStream} from "./utils/Logger";
 import AdministrativeRoutes from "./routes/AdministrativeRoutes";
+import BanlistRoutes from "./routes/BanlistRoutes";
 
 class App {
 
@@ -70,6 +70,9 @@ class App {
 
 		// Administrative routes (primárně pro CraftBox)
 		this.express.use('/admin', AdministrativeRoutes);
+
+		// Banlist
+		this.express.use('/banlist', BanlistRoutes);
 
 		// Index route
 		this.express.use('/', function(_req: Request, res: Response) {

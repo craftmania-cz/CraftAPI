@@ -1,5 +1,6 @@
 import * as Knex from 'knex';
-import { IConfig } from "config";
+import {IConfig} from "config";
+import {attachPaginate} from "knex-paginate";
 
 export class SQLManager {
 	public static knex: Knex;
@@ -30,6 +31,9 @@ export class SQLManager {
 				max: 10,
 			},
 		});
+		//SQLManager.knex.on('query', console.log)
+
+		attachPaginate()
 		this.setup();
 	}
 
